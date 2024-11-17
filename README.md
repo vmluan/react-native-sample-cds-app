@@ -1,6 +1,13 @@
-# Welcome to your Expo app 👋
+# Sample React Native for CDS Participant
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an [Sample CDS App](https://clinicaldatas.net) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+## Library Requirement
+   ```bash
+   node version 18
+   react native version 0.76.2
+   Java 17
+   ```
 
 ## Get started
 
@@ -16,35 +23,26 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## to enable build an Android, iOS archives locally, run following command to download necessary files for android.
+   ````bash
+   npx expo run:android
+   npx expo run:ios
+   ````
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Generate new keytool in order to publish android app
+   ````bash
+      keytool -genkey -v -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -storepass cdspassword -keypass cdspassword -alias cdsalias -keystore release.keystore -dname "CN=net.clinicaldatas.demo.reactnative,OU=,O=,L=,S=,C=US"
+   ````
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Generate APK in release format
+   ````bash
+   cd android
+   ./gradlew assembleRelease
+   ````
+The apk file will be generated in folder android/app/build/outputs/apk/app-release.apk.
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Setup ios locally
+   ````bash
+   npx expo run:ios
+   ````
+Above command to initially setup ios directory download and install necessary files using CocoaPods tool and start running on iOS emulator if xcode is set up correctly before.

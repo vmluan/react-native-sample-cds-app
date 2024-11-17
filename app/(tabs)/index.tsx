@@ -5,7 +5,7 @@ import ImageViewer from "@/components/ImageViewer";
 import Button from "@/components/Button";
 import * as ImagePicker from "expo-image-picker";
 import { useState, useRef } from "react";
-// import { captureRef } from "react-native-view-shot";
+import { captureRef } from "react-native-view-shot";
 import { type ImageSource } from "expo-image";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import domtoimage from 'dom-to-image';
